@@ -1,0 +1,76 @@
+﻿@model Usuario
+
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="container">
+
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-10">
+                    <div class="wrap d-md-flex">
+                        <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+                            <div class="text w-100">
+                                <h2>Warren Hills</h2>
+
+                            </div>
+                        </div>
+                        <div class="login-wrap p-4 p-lg-5">
+                            <div class="d-flex">
+                                <div class="w-100">
+                                    <h3 class="mb-4">Iniciar Sesión</h3>
+                                </div>
+
+                            </div>
+                            @if (ViewBag.MensajeLogin != null)
+                            {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.MensajeLogin
+                            </div>
+                            }
+
+
+                            @using (Html.BeginForm("IniciarSesion", "Login", FormMethod.Post))
+                            {
+                                <form action="#" class="signin-form">
+                                    <div class="form-group mb-3">
+                                        <label class="label" for="name">Usuario</label>
+                                        @*<input type="text" class="form-control" placeholder="Username" required>*@
+                                        @Html.TextBoxFor(m => m.CorreoElectronico, new { @class = "form-control", @placeholder = "Correo Electronico", required = "required" })
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label class="label" for="password">Contraseña</label>
+
+                                        @Html.TextBoxFor(m => m.Clave, new { @class = "form-control", @placeholder = "Contraseña", required = "required", @type = "password" })
+
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="form-control btn btn-primary submit px-3">Iniciar Sesión</button>
+                                    </div>
+                                    <div class="form-group d-md-flex">
+                                        <div class="w-50 text-left">
+                                            <label class="checkbox-wrap checkbox-primary mb-0">
+                                                Recuerdame
+                                                <input type="checkbox" checked>
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </div>
+                                        @*<div class="w-50 text-md-right">
+                        <a href="#">Forgot Password</a>
+                    </div>*@
+                                    </div>
+                                </form>
+                            }
+
+                            <hr>
+                            <p class="text-center">Quieres registrarte?</p>
+                            <div class="form-group">
+                                <button type="button" onclick="location.href='@Url.Action("ClaveRegistro","Login")'" class="form-control btn btn-primary submit px-3">Registrarse</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+</div>
+    

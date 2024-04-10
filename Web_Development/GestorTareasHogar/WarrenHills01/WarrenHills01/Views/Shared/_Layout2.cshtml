@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    @Styles.Render("/Estilos/OwnStyles.css")
+
+
+</head>
+<body>
+    <header class="container-fluid
+            d-flex justify-content-end" style="background-color: midnightblue">
+        <p class="text-light mb-0 p-2
+           fs-6">Doña Libia: +506 8301 9416</p>
+    </header>
+
+    <div class="main-panel">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light p-3" style="box-shadow: 0 16px 38px -12px rgb(0 0 0 / 56%), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%)">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <span class="text-success fs-4 fw-bold">Warren</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="@Url.Action("Index","Home")">Inicio</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="@Url.Action("MisTareas","Tarea")">Mis Tareas</a>
+                        </li>
+                        @if ((Session["User"] as WarrenHills01.Entidades.LoginCLS).Rol == 1)
+                        {
+                            @*<li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="@Url.Action("RegistraTareaAdmin", "Tarea")">Registrar Tarea</a>
+                            </li>*@
+                            <!--Mantenimiento-->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link  fw-bold" id="navbarDropdownMenuMantenimiento" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Mantenimiento
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuMantenimiento">
+                                    <li><a class="dropdown-item" href="#">Tareas</a></li>
+                                    <li><a class="dropdown-item" href="#"> Usuarios</a></li>
+                                    <li><a class="dropdown-item" href="#">Gastos Mensuales</a></li>
+
+                                </ul>
+                            </li>
+                            <!--Registros-->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link  fw-bold" id="navbarDropdownMenuRegistro" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Registro
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuRegistro">
+                                    <li><a class="dropdown-item" href="@Url.Action("RegistraTareaAdmin", "Tarea")">Tareas</a></li>
+                                    <li><a class="dropdown-item" href="@Url.Action("RegistraUsuarioAdmin", "Usuario")"> Usuarios</a></li>
+                                    <li><a class="dropdown-item" href="#">Gastos Mensuales</a></li>
+
+                                </ul>
+                            </li>
+                            @*<li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="@Url.Action("RegistraUsuarioAdmin", "Usuario")">Registra Usuario</a>
+                            </li>*@
+                        }
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-success fw-bold" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                @((Session["User"] as WarrenHills01.Entidades.LoginCLS).Nombre)
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="@Url.Action("MiPerfil","Usuario")"><i class="fas fa-user-astronaut"></i> Mi Perfil</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("SignOut","Usuario")"><i class="fas fa-sign-out-alt"></i> Sign out</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link active" aria-current="page" href="@Url.Action("TipoCambio","Utilidad")">Tipo de Cambio</a>
+
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+
+
+            @RenderBody()
+
+        </div>
+
+
+
+    </div>
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-muted" style="background-color: #293841">
+        <!-- Section: Social media -->
+        <br>
+        <!-- Section: Social media -->
+        <!-- Section: Links  -->
+        <section class="text-white">
+            <div class="container text-center  text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-satellite"></i> Warren Hills
+                        </h6>
+                        <h6>Enlaces de utilidad:</h6>
+
+                        <p>
+                            <a href="https://www.tigo.cr/pago-de-facturas?utm_source=search&utm_medium=sem&utm_campaign=sv-home-pagos_facturas_brand" class="text-white p-4" rel="noopener noreferrer" target="_blank">MiTigo CR</a>
+                        </p>
+                        <p>
+                            <a href="https://www.aya.go.cr/servicioCliente/SitePages/consultaFacturacion.aspx" class="text-white p-4" rel="noopener noreferrer" target="_blank">Aya (Agua)</a>
+                        </p>
+                        <p>
+                            <a href="https://www.cnfl.go.cr//consulta-de-recibos" class="text-white p-4" rel="noopener noreferrer" target="_blank">CNFL (Luz)</a>
+                        </p>
+                        <p>
+                            <a href="https://gee.bccr.fi.cr/indicadoreseconomicos/Cuadros/frmVerCatCuadro.aspx?idioma=1&CodCuadro=%20400" class="text-white p-4" rel="noopener noreferrer" target="_blank">Tipo de Cambio</a>
+                        </p>
+
+
+
+
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <!--<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">-->
+                    <!-- Links -->
+                    <!--<h6 class="text-uppercase fw-bold mb-4">
+                            Products
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Angular</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">React</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Vue</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Laravel</a>
+                        </p>
+                    </div>-->
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <!--<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">-->
+                    <!-- Links -->
+                    <!--<h6 class="text-uppercase fw-bold mb-4">
+                            Useful links
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">Pricing</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Settings</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Orders</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Help</a>
+                        </p>
+                    </div>-->
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4"><i class="fas fa-cannabis"></i>
+                            Ubicación
+                        </h6>
+                        <p> San Pedro, Residencias Yolanda</p>
+                        
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+        <!-- Copyright -->
+        <div class="text-center text-white p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2021 Copyright:
+            <a class="text-reset fw-bold" href="#">chaakstudios.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!--Para los iconos-->
+    <script src="https://kit.fontawesome.com/970601c6d9.js" crossorigin="anonymous"></script>
+    @Scripts.Render("~/bundles/jquery")
+</body>
+</html>

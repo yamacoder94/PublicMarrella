@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WarrenHills01.Entidades.TareaSemanaUsuarios>
+<!--Vista parcial que trae la lista de dareas por usuario en Inicio-->
+
+<div class="card shadow" id="Tabla2">
+    <div class="card-header card-header-primary" id="HeaderTablaInicio1">
+        <h4 class="card-title ">Tareas Domesticas por Usuario</h4>
+        <p class="card-category">Tareas de cada warren</p>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class=" text-primary">
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Tarea
+                </th>
+                <th>
+                    DiaSemana
+                </th>
+                
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @item.Nombre
+                            </td>
+                            <td>
+                                @item.Tarea
+                            </td>
+                            <td>
+                                @item.DiaSemana
+                            </td>
+                            
+                        </tr>
+                    }
+                        
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>

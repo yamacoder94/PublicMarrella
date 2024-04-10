@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="warrenHills_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Dashboard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdUsuario" Type="Int64" Nullable="false" />
+    <Property Name="IdTarea" Type="Int64" Nullable="false" />
+    <Property Name="DiaSemana" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TareaSemanal" Relationship="Self.FK_Dashboard_Tarea" FromRole="Dashboard" ToRole="TareaSemanal" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Dashboard_Usuario" FromRole="Dashboard" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Gasto_Mensual">
+    <Key>
+      <PropertyRef Name="Id_gasto" />
+    </Key>
+    <Property Name="Id_gasto" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Fecha_generado" Type="Int32" />
+    <Property Name="Fecha_Vencimiento" Type="Int32" Nullable="false" />
+    <Property Name="Id_Pago" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HistoriaTarea">
+    <Key>
+      <PropertyRef Name="IdHistoriaTarea" />
+    </Key>
+    <Property Name="IdHistoriaTarea" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdTarea" Type="Int64" Nullable="false" />
+    <Property Name="IdUsuario" Type="Int64" Nullable="false" />
+    <Property Name="Fecha_Finalizacion" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Comentario" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TareaSemanal" Relationship="Self.FK_HistoriaTarea_Tarea" FromRole="HistoriaTarea" ToRole="TareaSemanal" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_HistoriaTarea_Usuario" FromRole="HistoriaTarea" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TareaSemanal">
+    <Key>
+      <PropertyRef Name="IdTarea" />
+    </Key>
+    <Property Name="IdTarea" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Dashboard" Relationship="Self.FK_Dashboard_Tarea" FromRole="TareaSemanal" ToRole="Dashboard" />
+    <NavigationProperty Name="HistoriaTarea" Relationship="Self.FK_HistoriaTarea_Tarea" FromRole="TareaSemanal" ToRole="HistoriaTarea" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ImgPerfil" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="IdRol" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Dashboard" Relationship="Self.FK_Dashboard_Usuario" FromRole="Usuario" ToRole="Dashboard" />
+    <NavigationProperty Name="HistoriaTarea" Relationship="Self.FK_HistoriaTarea_Usuario" FromRole="Usuario" ToRole="HistoriaTarea" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK_Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
+  </EntityType>
+  <Association Name="FK_Dashboard_Tarea">
+    <End Role="TareaSemanal" Type="Self.TareaSemanal" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TareaSemanal">
+        <PropertyRef Name="IdTarea" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="IdTarea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoriaTarea_Tarea">
+    <End Role="TareaSemanal" Type="Self.TareaSemanal" Multiplicity="1" />
+    <End Role="HistoriaTarea" Type="Self.HistoriaTarea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TareaSemanal">
+        <PropertyRef Name="IdTarea" />
+      </Principal>
+      <Dependent Role="HistoriaTarea">
+        <PropertyRef Name="IdTarea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HistoriaTarea_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="HistoriaTarea" Type="Self.HistoriaTarea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="HistoriaTarea">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="warrenHills_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Dashboard" EntityType="Self.Dashboard" />
+    <EntitySet Name="Gasto_Mensual" EntityType="Self.Gasto_Mensual" />
+    <EntitySet Name="HistoriaTarea" EntityType="Self.HistoriaTarea" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TareaSemanal" EntityType="Self.TareaSemanal" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <AssociationSet Name="FK_Dashboard_Tarea" Association="Self.FK_Dashboard_Tarea">
+      <End Role="TareaSemanal" EntitySet="TareaSemanal" />
+      <End Role="Dashboard" EntitySet="Dashboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_Usuario" Association="Self.FK_Dashboard_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Dashboard" EntitySet="Dashboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoriaTarea_Tarea" Association="Self.FK_HistoriaTarea_Tarea">
+      <End Role="TareaSemanal" EntitySet="TareaSemanal" />
+      <End Role="HistoriaTarea" EntitySet="HistoriaTarea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HistoriaTarea_Usuario" Association="Self.FK_HistoriaTarea_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="HistoriaTarea" EntitySet="HistoriaTarea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <FunctionImport Name="ConsultaHistorialTareas" ReturnType="Collection(warrenHills_dbModel.ConsultaHistorialTareas_Result)" />
+    <FunctionImport Name="ConsultaTareasUsuarios" ReturnType="Collection(warrenHills_dbModel.ConsultaTareasUsuarios_Result)" />
+    <FunctionImport Name="InsertaDash">
+      <Parameter Name="pIdUsuario" Mode="In" Type="Int64" />
+      <Parameter Name="pIdTarea" Mode="In" Type="Int64" />
+      <Parameter Name="pDiaSemana" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertarHistorial">
+      <Parameter Name="pTarea" Mode="In" Type="Int64" />
+      <Parameter Name="pIdUsuario" Mode="In" Type="Int64" />
+      <Parameter Name="pFecha" Mode="In" Type="DateTime" />
+      <Parameter Name="pComent" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertaUsuario">
+      <Parameter Name="pNombre" Mode="In" Type="String" />
+      <Parameter Name="pApellido" Mode="In" Type="String" />
+      <Parameter Name="pCorreo" Mode="In" Type="String" />
+      <Parameter Name="pClave" Mode="In" Type="String" />
+      <Parameter Name="pIdRol" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(warrenHills_dbModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(warrenHills_dbModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="TareasUsuarioUnico" ReturnType="Collection(warrenHills_dbModel.TareasUsuarioUnico_Result)">
+      <Parameter Name="pIdUsuario" Mode="In" Type="Int64" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="ConsultaHistorialTareas_Result">
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="201" />
+    <Property Type="String" Name="Tarea" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="Fecha_Finalizado" Nullable="false" />
+    <Property Type="String" Name="Comentario" Nullable="true" MaxLength="800" />
+  </ComplexType>
+  <ComplexType Name="ConsultaTareasUsuarios_Result">
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="201" />
+    <Property Type="String" Name="Tarea" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DiaSemana" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="TareasUsuarioUnico_Result">
+    <Property Type="String" Name="tarea" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="DiaSemana" Nullable="false" MaxLength="50" />
+  </ComplexType>
+</Schema>

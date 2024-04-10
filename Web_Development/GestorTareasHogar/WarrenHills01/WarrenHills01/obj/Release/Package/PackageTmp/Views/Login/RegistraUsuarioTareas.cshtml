@@ -1,0 +1,49 @@
+﻿@model Dashboard
+
+@{
+    ViewBag.Title = "RegistraUsuarioTareas";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-10">
+            <div class="wrap d-md-flex">
+
+                <div class="login-wrap p-4 p-lg-5 " style="width: 100%">
+                    <div class="d-flex ">
+                        <div class="w-100 text-center">
+                            <h3 class="mb-4 ">Registro de Tareas Domesticas</h3>
+                        </div>
+
+                    </div>
+                    @using (Html.BeginForm("RegistraUsuarioTareas", "Login", FormMethod.Post))
+                    {
+                        
+                            
+                            <div action="#" class="signin-form">
+                                <div class="form-group mb-3 text-center">
+                                    <label class="label" for="name">@ViewBag.DescripcionTarea1</label>
+                                </div>
+                                @*@Html.Partial("DropDownTareas", new Dashboard())*@
+                                <div class="form-group mb-3 ">
+                                    @Html.DropDownListFor(m => m.DiaSemana, ViewBag.DiaSemana as IEnumerable<SelectListItem>, new { @class = "form-control"})
+                                </div>
+                            </div>
+                        <!--Finaliza el for each que repite los dropdowns segun la cantidad de descripciones recibidads -->
+
+                        <!--Submit q deberia de mandar una lista al controlador -->
+                        <div class="form-group">
+                            <button type="submit" class="form-control btn btn-primary submit px-3">Siguiente</button>
+                        </div>
+                    }
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*@Scripts.Render("/Funciones/Pruebas.js")*@
+

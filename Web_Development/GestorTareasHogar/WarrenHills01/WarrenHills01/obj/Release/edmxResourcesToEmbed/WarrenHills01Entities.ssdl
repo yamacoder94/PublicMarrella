@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WarrenHills01Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Dashboard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdUsuario" Type="bigint" Nullable="false" />
+    <Property Name="IdTarea" Type="bigint" Nullable="false" />
+    <Property Name="DiaSemana" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gasto_Mensual">
+    <Key>
+      <PropertyRef Name="Id_gasto" />
+    </Key>
+    <Property Name="Id_gasto" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Fecha_Generado" Type="bigint" Nullable="false" />
+    <Property Name="Fecha_Vencimiento" Type="bigint" Nullable="false" />
+    <Property Name="Id_pago" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HistoriaTarea">
+    <Key>
+      <PropertyRef Name="IdHistoriaTarea" />
+    </Key>
+    <Property Name="IdHistoriaTarea" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTarea" Type="bigint" Nullable="false" />
+    <Property Name="IdUsuario" Type="bigint" Nullable="false" />
+    <Property Name="Fecha_Finalizacion" Type="date" Nullable="false" />
+    <Property Name="Comentario" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="IdRol" />
+    </Key>
+    <Property Name="IdRol" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SysDiagrams">
+    <Key>
+      <PropertyRef Name="Diagram_Id" />
+    </Key>
+    <Property Name="Diagram_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Principal_Id" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Version" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Definition" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TareaSemanal">
+    <Key>
+      <PropertyRef Name="IdTarea" />
+    </Key>
+    <Property Name="IdTarea" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IdUsuario" />
+    </Key>
+    <Property Name="IdUsuario" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Apellido" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CorreoElectronico" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Clave" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ImgPerfil" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="IdRol" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Dashboard_TareaSemanal">
+    <End Role="TareaSemanal" Type="Self.TareaSemanal" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TareaSemanal">
+        <PropertyRef Name="IdTarea" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="IdTarea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Historia_Tarea_TareaSemanal">
+    <End Role="TareaSemanal" Type="Self.TareaSemanal" Multiplicity="1" />
+    <End Role="HistoriaTarea" Type="Self.HistoriaTarea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TareaSemanal">
+        <PropertyRef Name="IdTarea" />
+      </Principal>
+      <Dependent Role="HistoriaTarea">
+        <PropertyRef Name="IdTarea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Historia_Tarea_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="HistoriaTarea" Type="Self.HistoriaTarea" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Principal>
+      <Dependent Role="HistoriaTarea">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="IdRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IdUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ConsultaHistoriaTareas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ConsultaTareasUsuarios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="InsertaDash" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDUSUARIO" Type="int" Mode="In" />
+    <Parameter Name="IDTAREA" Type="int" Mode="In" />
+    <Parameter Name="DIASEMANA" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="InsertarHistorial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDT" Type="int" Mode="In" />
+    <Parameter Name="IDUSUARIO" Type="int" Mode="In" />
+    <Parameter Name="FECHA" Type="date" Mode="In" />
+    <Parameter Name="COMENTARIOS" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="InsertaUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="NOMBRE" Type="varchar" Mode="In" />
+    <Parameter Name="APELLIDO" Type="varchar" Mode="In" />
+    <Parameter Name="CORREOELECTRONICO" Type="varchar" Mode="In" />
+    <Parameter Name="CLAVE" Type="varchar" Mode="In" />
+    <Parameter Name="IDROLL" Type="int" Mode="In" />
+  </Function>
+  <Function Name="TareasUsuarioUnico" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDUSUARIO" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="WarrenHills01ModelStoreContainer">
+    <EntitySet Name="Dashboard" EntityType="Self.Dashboard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gasto_Mensual" EntityType="Self.Gasto_Mensual" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistoriaTarea" EntityType="Self.HistoriaTarea" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SysDiagrams" EntityType="Self.SysDiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TareaSemanal" EntityType="Self.TareaSemanal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Dashboard_TareaSemanal" Association="Self.FK_Dashboard_TareaSemanal">
+      <End Role="TareaSemanal" EntitySet="TareaSemanal" />
+      <End Role="Dashboard" EntitySet="Dashboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_Usuario" Association="Self.FK_Dashboard_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Dashboard" EntitySet="Dashboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Historia_Tarea_TareaSemanal" Association="Self.FK_Historia_Tarea_TareaSemanal">
+      <End Role="TareaSemanal" EntitySet="TareaSemanal" />
+      <End Role="HistoriaTarea" EntitySet="HistoriaTarea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Historia_Tarea_Usuario" Association="Self.FK_Historia_Tarea_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="HistoriaTarea" EntitySet="HistoriaTarea" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

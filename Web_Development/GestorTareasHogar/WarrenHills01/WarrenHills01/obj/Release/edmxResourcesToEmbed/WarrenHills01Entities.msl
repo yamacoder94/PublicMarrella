@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WarrenHills01ModelStoreContainer" CdmEntityContainer="WarrenHills01Entities">
+    <EntitySetMapping Name="Dashboard">
+      <EntityTypeMapping TypeName="WarrenHills01Model.Dashboard">
+        <MappingFragment StoreEntitySet="Dashboard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="IdTarea" ColumnName="IdTarea" />
+          <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gasto_Mensual">
+      <EntityTypeMapping TypeName="WarrenHills01Model.Gasto_Mensual">
+        <MappingFragment StoreEntitySet="Gasto_Mensual">
+          <ScalarProperty Name="Id_gasto" ColumnName="Id_gasto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha_Generado" ColumnName="Fecha_Generado" />
+          <ScalarProperty Name="Fecha_Vencimiento" ColumnName="Fecha_Vencimiento" />
+          <ScalarProperty Name="Id_pago" ColumnName="Id_pago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistoriaTarea">
+      <EntityTypeMapping TypeName="WarrenHills01Model.HistoriaTarea">
+        <MappingFragment StoreEntitySet="HistoriaTarea">
+          <ScalarProperty Name="IdHistoriaTarea" ColumnName="IdHistoriaTarea" />
+          <ScalarProperty Name="IdTarea" ColumnName="IdTarea" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Fecha_Finalizacion" ColumnName="Fecha_Finalizacion" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="WarrenHills01Model.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysDiagrams">
+      <EntityTypeMapping TypeName="WarrenHills01Model.SysDiagrams">
+        <MappingFragment StoreEntitySet="SysDiagrams">
+          <ScalarProperty Name="Diagram_Id" ColumnName="Diagram_Id" />
+          <ScalarProperty Name="Principal_Id" ColumnName="Principal_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="Definition" ColumnName="Definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TareaSemanal">
+      <EntityTypeMapping TypeName="WarrenHills01Model.TareaSemanal">
+        <MappingFragment StoreEntitySet="TareaSemanal">
+          <ScalarProperty Name="IdTarea" ColumnName="IdTarea" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="WarrenHills01Model.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="CorreoElectronico" ColumnName="CorreoElectronico" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="ImgPerfil" ColumnName="ImgPerfil" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ConsultaHistoriaTareas" FunctionName="WarrenHills01Model.Store.ConsultaHistoriaTareas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WarrenHills01Model.ConsultaHistoriaTareas_Result">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tarea" ColumnName="Tarea" />
+          <ScalarProperty Name="Fecha_Finalizacion" ColumnName="Fecha_Finalizacion" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ConsultaTareasUsuarios" FunctionName="WarrenHills01Model.Store.ConsultaTareasUsuarios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WarrenHills01Model.ConsultaTareasUsuarios_Result">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tarea" ColumnName="Tarea" />
+          <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="InsertaDash" FunctionName="WarrenHills01Model.Store.InsertaDash" />
+    <FunctionImportMapping FunctionImportName="InsertarHistorial" FunctionName="WarrenHills01Model.Store.InsertarHistorial" />
+    <FunctionImportMapping FunctionImportName="InsertaUsuario" FunctionName="WarrenHills01Model.Store.InsertaUsuario" />
+    <FunctionImportMapping FunctionImportName="TareasUsuarioUnico" FunctionName="WarrenHills01Model.Store.TareasUsuarioUnico">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WarrenHills01Model.TareasUsuarioUnico_Result">
+          <ScalarProperty Name="tarea" ColumnName="tarea" />
+          <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

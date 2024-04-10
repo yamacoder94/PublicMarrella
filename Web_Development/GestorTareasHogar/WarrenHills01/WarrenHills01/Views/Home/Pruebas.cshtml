@@ -1,0 +1,115 @@
+﻿@model PagedList.IPagedList<WarrenHills01.Entidades.HistorialTareas>
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+@{
+    ViewBag.Title = "Pruebas";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<nav class="navbar navbar-light " id="navTitulo">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1 text-success" style="font-size: 2.00rem;">@ViewBag.Message</span>
+    </div>
+</nav>
+
+
+
+
+@*<div class="row justify-content-center mt-2">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-2 ">
+                <div class="card text-white bg-success">
+                    <h5 class="card-header">@item.Descripcion</h5>
+                    <div class="card-body">
+                        <h5 class="card-title">Desgloce</h5>
+                        <p class="card-text"><strong>Fecha Generado: </strong>@item.Fecha_generado</p>
+                        <p class="card-text"><strong>Fecha Vencimiento: </strong>@item.Fecha_Vencimiento</p>
+                        <p class="card-text"><strong>ID Pago: </strong>@item.Id_Pago</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>*@
+
+
+<div class="container-fluid ">
+    <div class="row justify-content-center">
+        <div class="col-md-12" style="width:90%">
+            
+
+            <!--Primera
+            Tabla-->
+            @Html.Action("TraeListaGastosV", "Home")
+            <!--Segunda Table tareas x usuario -->
+            @Html.Action("TraeTareasUsuarioInicio", "Home")
+
+            <!--Tercera tabla historial de tareas -->
+
+            <div class="card shadow" id="Tabla3">
+                <div class="card-header card-header-primary" id="HeaderTablaInicio1">
+                    <h4 class="card-title ">Historial de Tareas Finalizadas</h4>
+                    <p class="card-category">Tareas en warren</p>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class=" text-primary">
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Tarea
+                            </th>
+                            <th>
+                                Dia Finalizado
+                            </th>
+
+                            <th>
+                                Comentarios
+                            </th>
+
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>
+                                        @item.Nombre
+                                    </td>
+                                    <td>
+                                        @item.Tarea
+                                    </td>
+                                    <td>
+                                        @item.Fecha
+                                    </td>
+                                    <td>
+                                        @item.Comentario
+                                    </td>
+
+                                </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br>
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+            @Html.PagedListPager(Model, page => Url.Action("Index",
+            new { page }))
+            <br>
+
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+

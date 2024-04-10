@@ -1,0 +1,72 @@
+﻿@model Usuario
+
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-10">
+            <div class="wrap d-md-flex">
+                <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+                    <div class="text w-100">
+                        <h2>Warren Hills</h2>
+                        <h4 style="color:whitesmoke">Registro Hills</h4>
+
+                    </div>
+                </div>
+                <div class="login-wrap p-4 p-lg-5">
+                    <div class="d-flex">
+                        <div class="w-100">
+                            <h3 class="mb-4">Registrate</h3>
+                        </div>
+
+                    </div>
+                    @if (ViewBag.MensajeLogin != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewBag.MensajeLogin
+                        </div>
+                    }
+
+
+                    @using (Html.BeginForm("RegistraUsuario", "Login", FormMethod.Post))
+                    {
+                <form action="#" class="signin-form">
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Nombre</label>
+                        @*<input type="text" class="form-control" placeholder="Username" required>*@
+                        @Html.TextBoxFor(m => m.Nombre, new { @class = "form-control", @placeholder = "Nombre", required = "required" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Apellidos</label>
+                        @*<input type="text" class="form-control" placeholder="Username" required>*@
+                        @Html.TextBoxFor(m => m.Apellido, new { @class = "form-control", @placeholder = "Apellido", required = "required" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for="name">Correo Electronico</label>
+                        @*<input type="text" class="form-control" placeholder="Username" required>*@
+                        @Html.TextBoxFor(m => m.CorreoElectronico, new { @class = "form-control", @placeholder = "Correo Electronico", required = "required" })
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="label" for="password">Contraseña</label>
+
+                        @Html.TextBoxFor(m => m.Clave, new { @class = "form-control", @placeholder = "Contraseña", required = "required", @type = "password" })
+
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="form-control btn btn-primary submit px-3">Siguiente</button>
+                    </div>
+                    
+                </form>
+                    }
+
+                    <hr>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

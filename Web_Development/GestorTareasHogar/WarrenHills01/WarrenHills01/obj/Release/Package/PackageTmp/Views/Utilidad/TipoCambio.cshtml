@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "TipoCambio";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="card mb-3" style="border:none">
+    <img src="~/Img/5625651.jpg" class="card-img-top" alt="...">
+    @*<div class="card-body">
+        </div>*@
+</div>
+
+<nav class="navbar navbar-light " id="navTitulo">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1 text-success" style="font-size: 2.00rem;">@ViewBag.Message</span>
+    </div>
+</nav>
+
+<div class="container-fluid ">
+    <div class="row justify-content-center">
+        <div class="col-md-12 mb-4" style="width:90%">
+
+            <div class="row justify-content-center ">
+                <div class="col-sm-4 mb-4">
+                    <div class="card bg-success shadow">
+                        <div class="card-body text-white">
+                            <h5 class="card-title">Tipo de Cambio Compra</h5>
+                            <hr>
+                            <p class="card-text">Compra: <strong>@ViewBag.compra</strong></p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mb-2">
+                    <div class="card bg-warning shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Tipo de Cambio Venta</h5>
+                            <hr>
+                            <p class="card-text">Venta: <strong>@ViewBag.venta</strong></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="CambioCompra" class="form-label">Compra</label>
+                    <input type="text" class="form-control" placeholder="Compra" id="CambioCompra" disabled>
+                </div>
+                <div class="col">
+                    <label for="CambioVenta" class="form-label">Venta</label>
+                    <input type="text" class="form-control" placeholder="Venta" id="CambioVenta" disabled>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="MontoColones" class="form-label">Monto en Colones</label>
+                    <input type="text" class="form-control" placeholder="Ingresar monto" id="MontoColones">
+                </div>
+                <div class="col">
+                    <label for="btConvertir" class="form-label "></label>
+                    <button type="button" onclick="RealizaCambio()" class="form-control btn btn-primary submit px-3 mt-2" id="btConvertir">Convertir</button>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("/Funciones/Utilidades.js");
