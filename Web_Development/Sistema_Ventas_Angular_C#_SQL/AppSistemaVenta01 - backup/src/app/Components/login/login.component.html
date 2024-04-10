@@ -1,0 +1,64 @@
+<div class="body">
+
+    <mat-card class="loginCard">
+        <div class="header">
+            <!--<img src="Screenshot_2024-03-09_223039-removebg-preview.png" alt="Logo" class="login-card-img">-->
+            <h2>Login</h2>
+
+
+        </div>
+
+        <mat-card-content style="padding-bottom: 15px;">
+            <form [formGroup]="formularioLogin"(ngSubmit)="iniciarSesion()">
+                <mat-form-field class="full-widht" appearance="outline">
+                    <mat-label>
+                        Email
+                    </mat-label>
+                    <input formControlName="email" matInput autocomplete="off">
+                    <mat-icon matSuffix>
+                        mail
+                    </mat-icon>
+
+                </mat-form-field>
+
+                <mat-form-field class="full-widht" appearance="outline">
+                    <mat-label>Contrasena</mat-label>
+                    <input [type]="ocultarPassword ? 'password' : 'text'"
+                    formControlName="password" matInput autocomplete="off">
+
+                    <button mat-icon-button matSuffix
+                        (click)="ocultarPassword = !ocultarPassword" type="button">
+
+                    <mat-icon>{{ocultarPassword ? 'visibility_off' : 'visibility'}}</mat-icon>    
+                    
+                    
+
+                    </button>
+
+                    
+
+                </mat-form-field>
+
+                <!--Si falta un campo , el boton de submit sera desabilitado-->
+                <button class="full-widht" mat-raised-button color="primary" type="submit"
+                [disabled]="formularioLogin.invalid"
+                >Ingresar
+                    <mat-icon matSuffix>login</mat-icon>
+
+                </button>
+            </form>
+
+
+        </mat-card-content>
+
+
+        <mat-card-footer>
+            <mat-progress-bar mode="indeterminate" *ngIf="mostrarLoading"></mat-progress-bar>
+        </mat-card-footer>
+
+
+    </mat-card>
+
+
+
+</div>

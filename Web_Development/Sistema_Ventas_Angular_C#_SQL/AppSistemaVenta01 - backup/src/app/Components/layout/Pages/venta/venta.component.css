@@ -1,0 +1,12 @@
+.custom-button {
+    cursor: not-allowed; /* Change cursor to indicate disabled state */
+    width: 80%;
+}
+
+.full-width{
+    width: 100%;
+}
+
+table{
+    width: 100%;
+}
