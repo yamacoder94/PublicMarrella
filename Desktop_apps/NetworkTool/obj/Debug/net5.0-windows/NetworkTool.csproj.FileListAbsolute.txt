@@ -1,0 +1,87 @@
+C:\Users\morana.11\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.exe
+C:\Users\morana.11\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.deps.json
+C:\Users\morana.11\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.runtimeconfig.json
+C:\Users\morana.11\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.runtimeconfig.dev.json
+C:\Users\morana.11\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.dll
+C:\Users\morana.11\source\repos\NetworkTool\bin\Debug\net5.0-windows\ref\NetworkTool.dll
+C:\Users\morana.11\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.pdb
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Form1.resources
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.GenerateResource.cache
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.AssemblyInfoInputs.cache
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.AssemblyInfo.cs
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.CoreCompileInputs.cache
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.dll
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\ref\NetworkTool.dll
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.pdb
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.genruntimeconfig.cache
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Properties.Resources.resources
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Ping.resources
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Traceroute.resources
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Clearcache.resources
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Gpupdate.resources
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.GPResult.resources
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Home.resources
+C:\Users\morana.11\source\repos\NetworkTool\bin\Debug\net5.0-windows\Microsoft.WindowsAPICodePack.dll
+C:\Users\morana.11\source\repos\NetworkTool\bin\Debug\net5.0-windows\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.CopyComplete
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.AssemblyReference.cache
+C:\Users\morana.11\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Popup01.resources
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.dll
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.pdb
+D:\RESPALDO YAMA\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.exe
+D:\RESPALDO YAMA\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.deps.json
+D:\RESPALDO YAMA\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.runtimeconfig.json
+D:\RESPALDO YAMA\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.runtimeconfig.dev.json
+D:\RESPALDO YAMA\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.dll
+D:\RESPALDO YAMA\source\repos\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.pdb
+D:\RESPALDO YAMA\source\repos\NetworkTool\bin\Debug\net5.0-windows\Microsoft.WindowsAPICodePack.dll
+D:\RESPALDO YAMA\source\repos\NetworkTool\bin\Debug\net5.0-windows\Microsoft.WindowsAPICodePack.Shell.dll
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.AssemblyReference.cache
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Clearcache.resources
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Form1.resources
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.GPResult.resources
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Gpupdate.resources
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Home.resources
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Ping.resources
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Popup01.resources
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Properties.Resources.resources
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Traceroute.resources
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.GenerateResource.cache
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.GeneratedMSBuildEditorConfig.editorconfig
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.AssemblyInfoInputs.cache
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.AssemblyInfo.cs
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.CoreCompileInputs.cache
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.CopyComplete
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\refint\NetworkTool.dll
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.genruntimeconfig.cache
+D:\RESPALDO YAMA\source\repos\NetworkTool\obj\Debug\net5.0-windows\ref\NetworkTool.dll
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.AssemblyReference.cache
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Clearcache.resources
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Form1.resources
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.GPResult.resources
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Gpupdate.resources
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Home.resources
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Ping.resources
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Popup01.resources
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Traceroute.resources
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.GenerateResource.cache
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.dll
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\refint\NetworkTool.dll
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.pdb
+C:\Users\YAMIL\Desktop\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.exe
+C:\Users\YAMIL\Desktop\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.deps.json
+C:\Users\YAMIL\Desktop\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.runtimeconfig.json
+C:\Users\YAMIL\Desktop\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.runtimeconfig.dev.json
+C:\Users\YAMIL\Desktop\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.dll
+C:\Users\YAMIL\Desktop\NetworkTool\bin\Debug\net5.0-windows\NetworkTool.pdb
+C:\Users\YAMIL\Desktop\NetworkTool\bin\Debug\net5.0-windows\Microsoft.WindowsAPICodePack.dll
+C:\Users\YAMIL\Desktop\NetworkTool\bin\Debug\net5.0-windows\Microsoft.WindowsAPICodePack.Shell.dll
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.Properties.Resources.resources
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.AssemblyInfoInputs.cache
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.AssemblyInfo.cs
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.CoreCompileInputs.cache
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.csproj.CopyComplete
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\NetworkTool.genruntimeconfig.cache
+C:\Users\YAMIL\Desktop\NetworkTool\obj\Debug\net5.0-windows\ref\NetworkTool.dll
